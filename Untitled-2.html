@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J Kiki's Deli - Our Menu</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Raleway">
+    <style>
+        /* Your existing CSS styles */
+	 * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        header {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+			font-family: 'Raleway', sans-serif; /* Apply Raleway to the header as well */
+        }
+
+		header h1 img {
+   		 max-width: 100px; /* Adjust the width as needed */
+   		 height: auto; /* Maintain aspect ratio */
+   		 vertical-align: middle; /* Center vertically */
+   		 margin-right: 10px; /* Add some spacing to the right of the logo */
+		}
+		
+        .menu-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .menu-item label {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+			font-family: 'Cinzel', sans-serif; /* Applying Cinzel font to labels */
+        }
+
+        .menu-item .menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .menu-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .menu-item input[type="checkbox"]:checked + .menu-content {
+            max-height: 500px; /* Adjust this value based on your content */
+        }
+
+        h1 {
+            padding: 10px;
+            font-size: 15px;
+            border-bottom: .5px solid #ccc;
+            margin-bottom: -10px;
+        }
+
+        p {
+            padding: 5px;
+            font-size: 12px;
+            font-style: normal;
+        }
+
+        .menu-content h1 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .menu-content p {
+            font-size: 12px;
+            font-style: normal;
+			font-family: 'raleway', sans-serif;
+        }
+
+        .menu-content h2 {
+            font-size: 20px;
+            float: right;
+            margin-right: 10px; /* Add margin-right to create spacing between h1 and h2 */
+			margin-top: -50px;
+			font-family: 'Cinzel', sans-serif;
+        }
+		
+		.special-h2 {
+    margin: 10px; /* Adjust the margin as needed */
+    float: right; /* Apply the float effect */
+		}
+		
+		.address {
+            text-align: center; /* Center-align the text */
+            margin: 40px 0; /* Add margin for spacing */
+			margin-top: 10px;
+			color: white
+			}
+		
+	header h1, header p {
+    margin: 0;
+    padding: 0;
+    border: none;
+		}
+		
+		.cinzel-font {
+            font-family: 'Cinzel', sans-serif; /* Applying Cinzel font to labels */
+        }
+		
+		.raleway-font {
+            font-family: 'Raleway', sans-serif; /* Applying Raleway font to <p> elements */
+        }
+		    color: white; /* Change the color to white */
+            text-decoration: none; /* Remove the default underline */
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .menu-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        /* ... (your existing CSS continues here) */
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img src="https://lh3.googleusercontent.com/pw/ADCreHfmIRFBGCBiPDRUzXGn4E4aS11fP80s673CC8jMxdKQtYmzVHXu2IG9hOZ0zeu1GcYeNtHE-nRiVWYzgiNh5GKmMWKWareUEcA5v1tTOjsqe9jYzJ_5sdynq1DIu03h2FnGGiupsrJUTXHWHV22CkBlByrmc6iG2IAD8yNOM4UiPJ1TL76pfiKRixE-TKzIzxI4jezG3iaH53NuB-12fKvQf59Kx1d4jkM--kC2nNudY1ut3_q2eVEQbaYlGWZUHM6OHjDIkjNPGvgqCaQBMbJRSGLaIZZR_dCcJFO1P858advheJXeWnPDO_vNeRoIrwbHDvjuJTGO8RNkkS7_s57Obkuxphmp68Jf5BZ9EnCdOypIyLIWNackHQo4jxvSqlQVvSWGpq7eF4cQap66oH4u4oNRxA8FY263Nux8r4_KW621Bn64WQc0q_8VPn_PmsYK0JJpzpZy3Yb2NSdqj9oaZ5bmtX7KJhol65Mpok1K4Nx5BLr1P7xVLkZ4IHVVq_uaLG0QqBhlNWRn-SDRJwHnqyhNvj1ajhV6HvwwZE5b4xl8-WfW5x6gn9kEq2Eh1skcnelsmHJV6mNX8HaDnRXtxUsDL1q8p63dBjnzqL2m1aYSkEPu1Vfgh3D5IIr8KZqePt-YZRUvPikzMxYPpT2A5LJTPR2kgnG3t1uquGPFwrs6oF5yNs8Ci3SYeMZUUrBbcYlLOVDiKcICaQa3gwiK2Yc_bef5uylRuiDBrRVE5PNi4U-3Kh-Fn4gsUDq3S2fnP-ECEF7MpHjYntrYEfvcewtV611PSAORM8YJh4HzkWt0Ck0p2YGDDSBiaY5G474O0RUFEiNTwFPaT4OPPilLU2-z-S3U6_daz5oMijA00MQUSpS56w8hKBM06wVKTZSIPGj5Ng95o2BTEyuGupwC--rukllQzTp7lIaq6Wli83EmdYFDCyucq52rLQ=w1197-h1063-s-no-gm?authuser=1" alt="J Kiki's Deli Logo"> <br>Our Menu</h1>
+
+
+        <h2>
+            <p class="address">249 MAIN STREET, <br>STATEN ISLAND NY 10307<br><br>OPEN 7 DAYS<br>MON-TH 7:00 AM - 10:00 PM<br>FRI, SAT 7:00 AM - 11:00 PM<br>SUNDAY 7:00 AM - 9:00 PM<br><a class="phone-link" href="tel:+3478386909">(347) 838 - 6909</a> Call for Order <a class="phone-link" href="tel:+9178548264">(917) 854 - 8264</a></p>
+        </h2>
+    </header>
+    <nav class="menu-container">
+		<div class="menu-item">
+            <input type="checkbox" id="Platillos">
+            <label for="Platillos">Platillos</label>
+            <div class="menu-content">
+                <h1>Plato KiKiS <p>Bistec Pechuga de Pollo, Camarones, Nopal<br>Cebollines, Champinones, Ensalada, Arroz y Frijoles</p>
+                <h2>$ 17.00</h2></h1>
+                <h1>Plato Ranchero <p>Cecina, Bistec, Chorizo, Ensalada<br>Arroz y Frijoles</p>
+                <h2>$ 15.00</h2></h1>
+                <h1>Bistec a la Mexicana <p>Bistec de res, Tomate, Cebolla<br>Jalapeno, Ensalada, Arroz y Frijoles</p>
+                <h2>$ 15.00</h2></h1>
+                <h1>Cecina Azada <p>Cecina, Cebolla, Combray, Nopal<br>Arroz y Frijoles</p>
+                <h2>$ 15.00</h2></h1>
+				<h1>Ensalada de Pollo <p>Pechuga de Pollo, Ensalada<br>Arroz y Frijoles</p>
+                <h2>$ 14.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Platillos -->
+        <div class="menu-item">
+            <input type="checkbox" id="Quesadillas">
+            <label for="Quesadillas">Quesadillas</label>
+            <div class="menu-content">
+                <h1>Quesadillas de Bistec <p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Huitlacoche<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Cecina<p><br></p>
+                <h2 class="special-h2">$ 14.00</h2></h1>
+				<h1>Quesadillas de Carnitas<p><br></p>
+                <h2 class="special-h2">$ 14.00</h2></h1>
+				<h1>Quesadillas de Barbacoa<p><br></p>
+                <h2 class="special-h2">$ 15.00</h2></h1>
+				<h1>Quesadillas Al Pastor<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Campechanas<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Tinga<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Champiñones<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Chicharron Prensado<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Mixtas<p><br></p>
+                <h2 class="special-h2">$ 15.00</h2></h1>
+				<h1>Quesadillas de Chorizo con papa<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Longaniza<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas de Chorizo<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Quesadillas solo Quesillo<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Quesadilla -->
+		<div class="menu-item">
+            <input type="checkbox" id="Tacos">
+            <label for="Tacos">Tacos</label>
+            <div class="menu-content">
+                <h1>Tacos KiKiS<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Tacos de Bistec<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+				<h1>Tacos Chori Queso <p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Tacos de Cecina<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Tacos Campechano<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+				<h1>Tacos de Carnitas<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Tacos al Pastor<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+				<h1>Tacos de Barbacoa<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Tacos de Carne Enchilada<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+				<h1>Tacos de Pollo<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+				<h1>Tacos Azteca<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Tacos de Papa con Chorizo<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Tacos -->
+		<div class="menu-item">
+            <input type="checkbox" id="Burritos">
+            <label for="Burritos">Burritos</label>
+            <div class="menu-content">
+                <h1>Burrito de Bistec<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Burrito Campechano<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Burrito de Carnitas<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Burrito de Cecina<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Burrito al Pastor<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Burrito de Longaniza<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Burrito de Pollo<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Burrito de Camaron<p><br></p>
+                <h2 class="special-h2">$ 14.00</h2></h1>
+				<h1>Burrito Mixto<p>Shrimp, Chicken, Beef<br></p>
+                <h2 class="special-h2">$ 14.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Burritos -->
+		<div class="menu-item">
+            <input type="checkbox" id="Desayunos">
+            <label for="Desayunos">Desayunos</label>
+            <div class="menu-content">
+                <h1>Huevos Rancheros<p><br></p>
+                <h2 class="special-h2">$ 10.00</h2></h1>
+				<h1>Bacon, Eggs and Cheese<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Chorizo con Huevo<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Ham, Egg and Cheese<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Sausage, Egg and Cheese<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Spinach Omelette<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Cheese Omelette<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Western Omelette<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Desayunos -->
+		<div class="menu-item">
+            <input type="checkbox" id="Mexican Meat">
+            <label for="Mexican Meat">Mexican Meat</label>
+            <div class="menu-content">
+                <h1>Chuleta Ahumada<p><br></p>
+                <h2 class="special-h2">$ 7.99</h2></h1>
+				<h1>Cecina<p><br></p>
+                <h2 class="special-h2">$ 10.99</h2></h1>
+				<h1>Carne Enchilada<p><br></p>
+                <h2 class="special-h2">$ 8.99</h2></h1>
+				<h1>Bistec<p><br></p>
+                <h2 class="special-h2">$ 9.99</h2></h1>
+				<h1>Chorizo<p><br></p>
+                <h2 class="special-h2">$ 7.99</h2></h1>
+				<h1>Longaniza<p><br></p>
+                <h2 class="special-h2">$ 7.99</h2></h1>
+				<h1>Pechuga<p><br></p>
+                <h2 class="special-h2">$ 4.99</h2></h1>
+				<h1>Costilla de Puerco<p><br></p>
+                <h2 class="special-h2">$ 4.99</h2></h1>
+				<h1>FUD Jamon<p><br></p>
+                <h2 class="special-h2">$ 8.99</h2></h1>
+				<h1>Queso de Puerco<p><br></p>
+                <h2 class="special-h2">$ 7.99</h2></h1>
+				<h1>Queso Hebra<p><br></p>
+                <h2 class="special-h2">$ 6.99</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Mexican Meat -->
+		<div class="menu-item">
+            <input type="checkbox" id="Extra">
+            <label for="Extra">Extra</label>
+            <div class="menu-content">
+                <h1>Arroz<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Frijoles<p><br></p>
+                <h2 class="special-h2">$ 3.00</h2></h1>
+				<h1>Ensalada<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Cebolla<p><br></p>
+                <h2 class="special-h2">$ 3.00</h2></h1>
+				<h1>Nopales<p><br></p>
+                <h2 class="special-h2">$ 3.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Extras -->
+		<div class="menu-item">
+            <input type="checkbox" id="Tortas">
+            <label for="Tortas">Tortas</label>
+            <div class="menu-content">
+                <h1>Torta Kikis<p>Bistec Asado, Cecina Asada, Nopales<br>y Cebolla</p>
+                <h2 class="special-h2">$ 10.00</h2></h1>
+				<h1>Milanesa de Pollo<p><br></p>
+                <h2 class="special-h2">$ 9.00</h2></h1>
+				<h1>Milanesa de Res<p><br></p>
+                <h2 class="special-h2">$ 10.00</h2></h1>
+				<h1>Torta Cubana<p><br></p>
+                <h2 class="special-h2">$ 10.00</h2></h1>
+				<h1>Torta Hawaiiana<p><br></p>
+                <h2 class="special-h2">$ 9.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Tortas -->
+		<div class="menu-item">
+            <input type="checkbox" id="Rolls">
+            <label for="Rolls">Rolls</label>
+            <div class="menu-content">
+                <h1>Chorizo con Huevo<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Bacon, Egg and Cheese<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Ham, Egg and Cheese<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Sausage, Egg and Cheese<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+				<h1>Egg and Cheese<p><br></p>
+                <h2 class="special-h2">$ 4.00</h2></h1>
+				<h1>Breakfast Combo<p><br></p>
+                <h2 class="special-h2">$ 8.00</h2></h1>
+				<h1>Extra home Fries<p><br></p>
+                <h2 class="special-h2">$ 4.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Rolls -->
+		<div class="menu-item">
+            <input type="checkbox" id="Sandwiches and More">
+            <label for="Sandwiches and More">Sandwiches and More</label>
+            <div class="menu-content">
+                <h1>Cold Sandwiches<p><br></p>
+                <h2 class="special-h2">Price Varies</h2></h1>
+				<h1>Tuna Salad<p><br></p>
+                <h2 class="special-h2">$ 8.50</h2></h1>
+				<h1>Philly Cheesesteak<p><br></p>
+                <h2 class="special-h2">$ 7.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Sandwiches and More -->
+		<div class="menu-item">
+            <input type="checkbox" id="Breakfast and Lunch">
+            <label for="Breakfast and Lunch">Breakfast and Lunch</label>
+            <div class="menu-content">
+                <h1>Bagel w. Butter<p><br></p>
+                <h2 class="special-h2">$ 2.50</h2></h1>
+				<h1>Bagel w. Cream Cheese<p><br></p>
+                <h2 class="special-h2">$ 2.50</h2></h1>
+				<h1>Bagel Bacon, Egg and Cheese<p><br></p>
+                <h2 class="special-h2">$ 5.00</h2></h1>
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Breakfast and Lunch -->
+		<div class="menu-item">
+            <input type="checkbox" id="Sopes">
+            <label for="Sopes">Sopes</label>
+            <div class="menu-content">
+                <h1>Sopes de Pollo<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Sopes de Bistec<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Sopes de Cecina<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Sopes de Carnitas<p><br></p>
+                <h2 class="special-h2">$ 13.00</h2></h1>
+				<h1>Sopes de Carne Enchilada<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Sopes al Pastor<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Sopes de Chorizo<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Sopes de Longaniza<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Sopes Campechano<p><br></p>
+                <h2 class="special-h2">$ 12.00</h2></h1>
+				<h1>Sopes Regulares<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+				<h1>Picaditas Roja o Verdes<p><br></p>
+                <h2 class="special-h2">$ 11.00</h2></h1>
+				
+				
+                <!-- Add more items here -->
+            </div>
+        </div>   <!-- Sopes -->
+        <!-- Add more menu categories here -->
+        <!-- Your menu items (unchanged) -->
+    </nav>
+    <script>
+        const menuItems = document.querySelectorAll(".menu-item input[type='checkbox']");
+
+        menuItems.forEach((item) => {
+            item.addEventListener("change", function () {
+                const content = this.parentElement.querySelector(".menu-content");
+                if (this.checked) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
